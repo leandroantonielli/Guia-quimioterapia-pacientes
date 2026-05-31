@@ -43,9 +43,10 @@ body {
 /* ── HEADER ── */
 .header {
   background: var(--teal);
-  padding: 36px 40px 28px;
+  padding: 36px 40px 48px; /* 👆🏼 Aumenté padding inferior para separar del primer acordeón */
   position: relative;
   overflow: hidden;
+  border-radius: 20px 20px 0 0;
 }
 .header::before {
   content: ''; position: absolute; right: -60px; top: -60px;
@@ -97,6 +98,10 @@ body {
 .accordion-content { padding: 24px; display: flex; flex-direction: column; gap: 18px; }
 
 /* ── BODY & CARDS ── */
+.body {
+  padding: 0 36px 32px; /* 👆🏼 Sin padding superior para no duplicar espacio con el header */
+  display: flex; flex-direction: column; gap: 18px; /* 👆🏼 Espacio entre fichas */
+}
 .card {
   background: var(--white);
   border-radius: var(--radius);
@@ -205,7 +210,7 @@ body {
 
 /* ── EMERGENCY FOOTER ── */
 .emergency {
-  background: var(--teal); border-radius: 14px; padding: 20px 24px; color: #fff; margin-top: 20px;
+  background: var(--teal); border-radius: 14px; padding: 20px 24px; color: #fff; margin-top: 8px;
 }
 .emergency h3 {
   font-family: 'Fraunces', serif; font-size: 17px; font-weight: 700;
@@ -222,7 +227,8 @@ body {
 /* ── FOOTER ── */
 .footer {
   background: var(--teal); color: rgba(255,255,255,0.65);
-  font-size: 11px; text-align: center; padding: 14px 24px; line-height: 1.6;
+  font-size: 11px; text-align: center; padding: 18px 24px; line-height: 1.6;
+  margin-top: 24px; /* 👆🏼 Espacio solicitado antes del footer */
 }
 .footer strong { color: rgba(255,255,255,0.9); }
 
@@ -250,7 +256,6 @@ body {
     <details class="accordion" open>
       <summary>📋 Pautas Generales y Alimentación</summary>
       <div class="accordion-content">
-        <!-- Pautas transversales -->
         <div class="card purple">
           <div class="card-title"><div class="icon-wrap">🧬</div><h2>Pautas transversales a todo tratamiento</h2></div>
           <div class="two-col">
