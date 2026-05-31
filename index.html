@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía del Paciente – Doxorrubicina</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal:        #1B7A6E;
+    --teal-light:  #EBF7F5;
+    --teal-mid:    #2C9C8D;
+    --coral:       #E8714A;
+    --coral-light: #FDF0EB;
+    --amber:       #D4A017;
+    --amber-light: #FDF7E3;
+    --red:         #C0392B;
+    --red-light:   #FDECEB;
+    --purple:      #6B4FA0;
+    --purple-light:#F0EBF8;
+    --bg:          #F7F3ED;
+    --text:        #1E2B2A;
+    --text-soft:   #4A5A58;
+    --white:       #FFFFFF;
+    --shadow:      0 2px 12px rgba(27,122,110,0.10);
+    --radius:      14px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #DDD9D2;
+    font-family: 'Nunito', sans-serif;
+    color: var(--text);
+    padding: 32px 16px;
+  }
+
+  .page {
+    width: 820px;
+    margin: 0 auto;
+    background: var(--bg);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--teal);
+    padding: 36px 40px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    right: 60px; bottom: -80px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .header-pill {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 99px;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 42px;
+    color: #fff;
+    line-height: 1.1;
+    font-weight: 900;
+  }
+  .header h1 span {
+    color: #A8EBE2;
+  }
+  .header p {
+    color: rgba(255,255,255,0.80);
+    margin-top: 10px;
+    font-size: 15px;
+    max-width: 520px;
+    line-height: 1.5;
+  }
+  .header-badge {
+    position: absolute;
+    right: 40px; top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 16px;
+    padding: 16px 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .header-badge .big {
+    display: block;
+    font-size: 34px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  /* ── BODY ── */
+  .body { padding: 32px 36px; display: flex; flex-direction: column; gap: 24px; }
+
+  /* ── SECTION CARD ── */
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+  }
+  .card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .card-title .icon-wrap {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .card-title h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  /* color variants */
+  .teal  .icon-wrap { background: var(--teal-light); }
+  .teal  h2         { color: var(--teal); }
+  .coral .icon-wrap { background: var(--coral-light); }
+  .coral h2         { color: var(--coral); }
+  .amber .icon-wrap { background: var(--amber-light); }
+  .amber h2         { color: var(--amber); }
+  .red   .icon-wrap { background: var(--red-light); }
+  .red   h2         { color: var(--red); }
+  .purple .icon-wrap{ background: var(--purple-light); }
+  .purple h2        { color: var(--purple); }
+
+  /* ── GRID for adverse effects ── */
+  .ae-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .ae-item {
+    background: var(--bg);
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .ae-item .ae-icon { font-size: 22px; line-height: 1; }
+  .ae-item .ae-name { font-weight: 800; font-size: 13px; color: var(--text); }
+  .ae-item .ae-note { font-size: 12px; color: var(--text-soft); line-height: 1.3; }
+  .ae-item.highlight {
+    border: 2px solid var(--coral);
+    background: var(--coral-light);
+  }
+  .ae-item.highlight .ae-name { color: var(--coral); }
+
+  /* ── ALARM BOX ── */
+  .alarm-box {
+    background: var(--red-light);
+    border: 2px solid var(--red);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+  .alarm-box .alarm-title {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'Fraunces', serif;
+    font-size: 17px; font-weight: 700;
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+  .alarm-list {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    list-style: none;
+  }
+  .alarm-list li {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 13px; font-weight: 600; color: var(--red);
+    background: rgba(192,57,43,0.07);
+    border-radius: 8px;
+    padding: 7px 10px;
+    line-height: 1.3;
+  }
+  .alarm-list li::before {
+    content: '⚠';
+    flex-shrink: 0;
+    font-size: 14px;
+  }
+
+  /* ── TIPS LIST ── */
+  .tips-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .tips-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 13.5px; line-height: 1.45;
+  }
+  .tips-list li .bullet {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    margin-top: 1px;
+  }
+  .teal  .tips-list .bullet { background: var(--teal-light); color: var(--teal); }
+  .coral .tips-list .bullet { background: var(--coral-light); color: var(--coral); }
+  .amber .tips-list .bullet { background: var(--amber-light); color: var(--amber); }
+  .purple .tips-list .bullet { background: var(--purple-light); color: var(--purple); }
+  .tips-list li strong { font-weight: 800; }
+
+  /* ── TWO COL ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  /* ── FOOD GRID ── */
+  .food-section { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .food-col-title {
+    font-weight: 800; font-size: 13px; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .food-col-title.yes { color: var(--teal); }
+  .food-col-title.no  { color: var(--coral); }
+  .food-tag-list { display: flex; flex-wrap: wrap; gap: 7px; }
+  .food-tag {
+    font-size: 12.5px; font-weight: 600;
+    padding: 5px 11px; border-radius: 99px;
+    line-height: 1;
+  }
+  .food-tag.yes { background: var(--teal-light); color: var(--teal); }
+  .food-tag.no  { background: var(--coral-light); color: var(--coral); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px; background: rgba(27,122,110,0.10);
+    margin: 4px 0;
+  }
+
+  /* ── SMALL BADGE ── */
+  .badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: var(--amber-light);
+    color: var(--amber);
+    border-radius: 99px;
+    padding: 3px 10px;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── EMERGENCY FOOTER ── */
+  .emergency {
+    background: var(--teal);
+    border-radius: 14px;
+    padding: 20px 24px;
+    color: #fff;
+  }
+  .emergency h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 17px; font-weight: 700;
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 12px;
+  }
+  .emergency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .em-item {
+    background: rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+  .em-item .em-name { font-weight: 800; margin-bottom: 3px; }
+  .em-item .em-phone { font-size: 15px; font-weight: 900; letter-spacing: 0.5px; opacity: 0.95; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--teal);
+    color: rgba(255,255,255,0.65);
+    font-size: 11px;
+    text-align: center;
+    padding: 14px 24px;
+    line-height: 1.6;
+  }
+  .footer strong { color: rgba(255,255,255,0.9); }
+
+  /* ── HEART CARD accent ── */
+  .heart-card {
+    background: linear-gradient(135deg, #1B7A6E 60%, #2C9C8D 100%);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    color: #fff;
+  }
+  .heart-card h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 19px; font-weight: 700;
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 14px;
+  }
+  .heart-card .tips-list li { color: rgba(255,255,255,0.92); }
+  .heart-card .bullet { background: rgba(255,255,255,0.18) !important; color: #fff !important; }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-pill">Guía para el Paciente</div>
+    <h1>Doxorrubicina<br><span>lo que necesitás saber</span></h1>
+    <p>Esta guía resume los efectos más frecuentes del tratamiento, cuándo consultar y cómo cuidarte en casa durante la quimioterapia.</p>
+    <div class="header-badge">
+      <span class="big">💊</span>
+      Quimioterapia<br>Antitumoral
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- EFECTOS ADVERSOS FRECUENTES -->
+    <div class="card coral">
+      <div class="card-title">
+        <div class="icon-wrap">⚡</div>
+        <h2>Efectos adversos frecuentes</h2>
+      </div>
+      <div class="ae-grid">
+        <div class="ae-item highlight">
+          <span class="ae-icon">💇</span>
+          <span class="ae-name">Caída del cabello</span>
+          <span class="ae-note">Muy frecuente (~85%). Incluye vello corporal. Reversible al terminar.</span>
+        </div>
+        <div class="ae-item">
+          <span class="ae-icon">🤢</span>
+          <span class="ae-name">Náuseas y vómitos</span>
+          <span class="ae-note">Suelen aparecer horas después de la infusión. Hay medicación preventiva.</span>
+        </div>
+        <div class="ae-item">
+          <span class="ae-icon">😮</span>
+          <span class="ae-name">Mucositis / llagas en boca</span>
+          <span class="ae-note">Aparece 5-10 días post-infusión. Cuidado bucal riguroso.</span>
+        </div>
+        <div class="ae-item">
+          <span class="ae-icon">😴</span>
+          <span class="ae-name">Cansancio / astenia</span>
+          <span class="ae-note">Muy frecuente. Planificar descansos. No forzar actividad.</span>
+        </div>
+        <div class="ae-item">
+          <span class="ae-icon">🛡️</span>
+          <span class="ae-name">Baja de defensas</span>
+          <span class="ae-note">Pico entre los días 10-14. Recuperación hacia el día 21.</span>
+        </div>
+        <div class="ae-item">
+          <span class="ae-icon">💧</span>
+          <span class="ae-name">Diarrea</span>
+          <span class="ae-note">Frecuente. Hidratarse bien. Dieta astringente si es leve.</span>
+        </div>
+        <div class="ae-item">
+          <span class="ae-icon">♨️</span>
+          <span class="ae-name">Fiebre</span>
+          <span class="ae-note">Puede indicar infección. Ver señales de alarma ↓</span>
+        </div>
+        <div class="ae-item">
+          <span class="ae-icon">🩸</span>
+          <span class="ae-name">Anemia</span>
+          <span class="ae-note">Cansancio, palidez, mareos. Informar al equipo médico.</span>
+        </div>
+        <div class="ae-item highlight">
+          <span class="ae-icon">🔴</span>
+          <span class="ae-name">Orina rojiza / anaranjada</span>
+          <span class="ae-note">Normal los primeros 1-2 días. No es sangre, es el medicamento.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÑALES DE ALARMA -->
+    <div class="alarm-box">
+      <div class="alarm-title">🚨 Consultá de inmediato si presentás…</div>
+      <ul class="alarm-list">
+        <li>Fiebre igual o mayor a 38°C</li>
+        <li>Dificultad para respirar o ahogo</li>
+        <li>Palpitaciones o ritmo cardíaco irregular</li>
+        <li>Hinchazón marcada de piernas o cara</li>
+        <li>Sangrado inusual (encías, nariz, heces)</li>
+        <li>Dolor o ardor fuerte en la boca que impide comer</li>
+        <li>Dolor intenso o hinchazón en el lugar del acceso venoso</li>
+        <li>Escalofríos, temblores o signos de infección</li>
+      </ul>
+    </div>
+
+    <!-- DOS COLUMNAS: boca + corazon -->
+    <div class="two-col">
+
+      <!-- CUIDADO DE LA BOCA -->
+      <div class="card teal">
+        <div class="card-title">
+          <div class="icon-wrap">🦷</div>
+          <h2>Cuidado de la boca</h2>
+        </div>
+        <ul class="tips-list">
+          <li><div class="bullet">✓</div><span>Enjuagues con agua tibia y bicarbonato (½ cdita en vaso de agua) <strong>4-6 veces por día</strong></span></li>
+          <li><div class="bullet">✓</div><span>Usar <strong>cepillo de dientes suave</strong>; cambiar el cepillo con frecuencia</span></li>
+          <li><div class="bullet">✓</div><span><strong>Mantener los labios humectados</strong> con vaselina o crema específica</span></li>
+          <li><div class="bullet">✗</div><span>Evitar alcohol en colutorios bucales, cítricos y alimentos muy picantes o ácidos</span></li>
+          <li><div class="bullet">✓</div><span>Informar al médico si aparecen úlceras o dolor intenso; existen tratamientos específicos</span></li>
+        </ul>
+      </div>
+
+      <!-- CUIDADO DEL CORAZON -->
+      <div class="heart-card">
+        <h2>❤️ Cuidado del corazón</h2>
+        <ul class="tips-list">
+          <li><div class="bullet">!</div><span>La doxorrubicina puede afectar el corazón con el tiempo. Tu médico controlará la función cardíaca periódicamente.</span></li>
+          <li><div class="bullet">!</div><span>Avisá si sentís <strong>ahogo al hacer esfuerzo mínimo</strong>, que antes no sentías</span></li>
+          <li><div class="bullet">!</div><span>Reportá <strong>hinchazón de pies o tobillos</strong>, tos de noche o palpitaciones</span></li>
+          <li><div class="bullet">!</div><span>No suspendas medicación cardiológica previa sin consultar al equipo oncológico</span></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- ALIMENTACION -->
+    <div class="card amber">
+      <div class="card-title">
+        <div class="icon-wrap">🥦</div>
+        <h2>Alimentación durante la quimioterapia</h2>
+      </div>
+      <div class="food-section">
+        <div>
+          <div class="food-col-title yes">✅ Preferir</div>
+          <div class="food-tag-list">
+            <span class="food-tag yes">Arroz blanco</span>
+            <span class="food-tag yes">Papas hervidas</span>
+            <span class="food-tag yes">Pan tostado</span>
+            <span class="food-tag yes">Banana madura</span>
+            <span class="food-tag yes">Pollo hervido o al horno</span>
+            <span class="food-tag yes">Zanahoria cocida</span>
+            <span class="food-tag yes">Yogur natural</span>
+            <span class="food-tag yes">Gelatina</span>
+            <span class="food-tag yes">Caldos suaves</span>
+            <span class="food-tag yes">Frutas sin cáscara</span>
+            <span class="food-tag yes">Infusiones sin cafeína</span>
+          </div>
+        </div>
+        <div>
+          <div class="food-col-title no">❌ Evitar</div>
+          <div class="food-tag-list">
+            <span class="food-tag no">Alcohol</span>
+            <span class="food-tag no">Frituras</span>
+            <span class="food-tag no">Picante</span>
+            <span class="food-tag no">Cítricos (si hay mucositis)</span>
+            <span class="food-tag no">Carnes crudas o poco cocidas</span>
+            <span class="food-tag no">Mariscos crudos</span>
+            <span class="food-tag no">Fiambres sin cocinar</span>
+            <span class="food-tag no">Lácteos no pasteurizados</span>
+            <span class="food-tag no">Ayuno prolongado</span>
+            <span class="food-tag no">Porciones muy grandes</span>
+          </div>
+        </div>
+      </div>
+      <div class="divider" style="margin: 16px 0;"></div>
+      <ul class="tips-list amber">
+        <li><div class="bullet">💡</div><span>El día de la infusión: comé algo <strong>liviano 1-2 hs antes</strong>, no llegues en ayunas ni con el estómago muy lleno.</span></li>
+        <li><div class="bullet">💡</div><span>Si hay náuseas: preferí <strong>comidas frías o a temperatura ambiente</strong> (huelen menos). Cinco o seis comidas pequeñas son mejores que tres grandes.</span></li>
+        <li><div class="bullet">💧</div><span>Tomá <strong>al menos 8-10 vasos de agua o líquido</strong> por día, más aún en días de quimio para ayudar al riñón a eliminar el medicamento.</span></li>
+        <li><div class="bullet">💡</div><span>Si perdés peso, sentís que no podés comer o tenés náuseas persistentes, pedile al equipo médico que te derive a nutricionista.</span></li>
+      </ul>
+    </div>
+
+    <!-- PAUTAS GENERALES QUIMIO -->
+    <div class="card purple">
+      <div class="card-title">
+        <div class="icon-wrap">🧬</div>
+        <h2>Pautas generales durante la quimioterapia</h2>
+      </div>
+      <div class="two-col">
+        <ul class="tips-list">
+          <li><div class="bullet">🧼</div><span><strong>Lavado de manos frecuente</strong> con agua y jabón, especialmente antes de comer y tras ir al baño</span></li>
+          <li><div class="bullet">😷</div><span>Entre los <strong>días 10 y 14 post-infusión</strong>, tus defensas están en el punto más bajo: evitá aglomeraciones y contacto con personas enfermas</span></li>
+          <li><div class="bullet">🚫</div><span><strong>No te automediques</strong>: consultá antes de tomar aspirina, ibuprofeno, vitaminas o suplementos</span></li>
+          <li><div class="bullet">💉</div><span>No recibas <strong>vacunas de virus vivos</strong> sin autorización del oncólogo (fiebre amarilla, varicela, etc.)</span></li>
+          <li><div class="bullet">☀️</div><span><strong>Protección solar</strong> todos los días: la piel puede volverse más sensible al sol</span></li>
+        </ul>
+        <ul class="tips-list">
+          <li><div class="bullet">😴</div><span>Priorizá el <strong>descanso</strong>. Si el cansancio impide tus actividades básicas, consultá al equipo médico</span></li>
+          <li><div class="bullet">🚶</div><span>Si te sentís bien, una <strong>caminata suave de 20-30 min</strong> diarios puede mejorar el ánimo y reducir el cansancio</span></li>
+          <li><div class="bullet">💊</div><span>Tomá los <strong>medicamentos antiemésticos</strong> (antináuseas) que te recetaron, aunque te sientas bien. Son preventivos.</span></li>
+          <li><div class="bullet">🩺</div><span>No faltes a los <strong>controles de laboratorio</strong> (hemograma) pactados; son clave para ajustar el tratamiento</span></li>
+          <li><div class="bullet">🧠</div><span>Es normal sentir tristeza o ansiedad. <strong>Pedí apoyo psicológico</strong> si lo necesitás; forma parte del tratamiento.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EMERGENCIAS -->
+    <div class="emergency">
+      <h3>📞 Centros de toxicología – Emergencias</h3>
+      <div class="emergency-grid">
+        <div class="em-item">
+          <div class="em-name">Hospital de Pediatría Ricardo Gutiérrez</div>
+          <div class="em-phone">011 4962-6666 / 2247</div>
+          <div style="font-size:12px;margin-top:4px;opacity:0.75;">0800 444 8694 (línea gratuita)</div>
+        </div>
+        <div class="em-item">
+          <div class="em-name">Hospital Nacional A. Posadas</div>
+          <div class="em-phone">011 4654-6648 / 4658-7777</div>
+          <div style="font-size:12px;margin-top:4px;opacity:0.75;">0800 333 0160 (línea gratuita)</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Esta guía es informativa y no reemplaza la indicación médica. Ante cualquier duda, consultá siempre con tu <strong>equipo de oncología o cuidados paliativos</strong>. ·
+    Material elaborado para pacientes en tratamiento con doxorrubicina.
+  </div>
+
+</div><!-- /page -->
+
+</body>
+</html>
