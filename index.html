@@ -48,47 +48,26 @@ body {
   overflow: hidden;
 }
 .header::before {
-  content: '';
-  position: absolute;
-  right: -60px; top: -60px;
-  width: 260px; height: 260px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.07);
+  content: ''; position: absolute; right: -60px; top: -60px;
+  width: 260px; height: 260px; border-radius: 50%; background: rgba(255,255,255,0.07);
 }
 .header::after {
-  content: '';
-  position: absolute;
-  right: 60px; bottom: -80px;
-  width: 180px; height: 180px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.05);
+  content: ''; position: absolute; right: 60px; bottom: -80px;
+  width: 180px; height: 180px; border-radius: 50%; background: rgba(255,255,255,0.05);
 }
 .header-pill {
-  display: inline-block;
-  background: rgba(255,255,255,0.18);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 4px 14px;
-  border-radius: 99px;
-  margin-bottom: 12px;
+  display: inline-block; background: rgba(255,255,255,0.18); color: #fff;
+  font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 99px; margin-bottom: 12px;
 }
 .header h1 {
-  font-family: 'Fraunces', serif;
-  font-size: 42px;
-  color: #fff;
-  line-height: 1.1;
-  font-weight: 900;
+  font-family: 'Fraunces', serif; font-size: 42px; color: #fff;
+  line-height: 1.1; font-weight: 900;
 }
 .header h1 span { color: #A8EBE2; }
 .header p {
-  color: rgba(255,255,255,0.80);
-  margin-top: 10px;
-  font-size: 15px;
-  max-width: 520px;
-  line-height: 1.5;
+  color: rgba(255,255,255,0.80); margin-top: 10px; font-size: 15px;
+  max-width: 520px; line-height: 1.5;
 }
 
 /* ── ACCORDION SYSTEM ── */
@@ -108,24 +87,16 @@ body {
   font-weight: 700;
   cursor: pointer;
   list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex; align-items: center; justify-content: space-between;
   transition: background 0.2s;
 }
 .accordion summary::-webkit-details-marker { display: none; }
-.accordion summary::after {
-  content: '▼';
-  font-size: 12px;
-  opacity: 0.8;
-  transition: transform 0.3s;
-}
+.accordion summary::after { content: '▼'; font-size: 12px; opacity: 0.8; transition: transform 0.3s; }
 .accordion[open] summary::after { transform: rotate(180deg); }
 .accordion[open] summary { border-bottom: 1px solid rgba(255,255,255,0.15); }
-.accordion-content { padding: 24px; }
+.accordion-content { padding: 24px; display: flex; flex-direction: column; gap: 18px; }
 
 /* ── BODY & CARDS ── */
-.body { padding: 24px 36px 32px; display: flex; flex-direction: column; gap: 16px; }
 .card {
   background: var(--white);
   border-radius: var(--radius);
@@ -166,7 +137,7 @@ body {
 /* ── ALARM BOX ── */
 .alarm-box {
   background: var(--red-light); border: 2px solid var(--red);
-  border-radius: 12px; padding: 18px 20px; margin-top: 16px;
+  border-radius: 12px; padding: 18px 20px;
 }
 .alarm-box .alarm-title {
   display: flex; align-items: center; gap: 8px;
@@ -269,17 +240,18 @@ body {
   <div class="header">
     <div class="header-pill">Repositorio de Guías</div>
     <h1>Efectos Adversos de<br><span>Quimioterapia</span></h1>
-    <p>Guías prácticas para pacientes. Hacé clic en cada fármaco o sección para desplegar la información específica.</p>
+    <p>Guías prácticas para pacientes. Hacé clic en cada sección para desplegar la información.</p>
   </div>
 
   <!-- BODY -->
   <div class="body">
     
-    <!-- 📋 INFORMACIÓN GENERAL -->
-    <details class="accordion">
-      <summary>📋 Información General sobre Quimioterapia</summary>
+    <!-- 📋 PAUTAS GENERALES Y ALIMENTACIÓN -->
+    <details class="accordion" open>
+      <summary>📋 Pautas Generales y Alimentación</summary>
       <div class="accordion-content">
-        <div class="card teal">
+        <!-- Pautas transversales -->
+        <div class="card purple">
           <div class="card-title"><div class="icon-wrap">🧬</div><h2>Pautas transversales a todo tratamiento</h2></div>
           <div class="two-col">
             <ul class="tips-list">
@@ -294,11 +266,38 @@ body {
             </ul>
           </div>
         </div>
+
+        <div class="divider"></div>
+
+        <!-- Alimentación -->
+        <div class="card amber" style="box-shadow: none;">
+          <div class="card-title"><div class="icon-wrap">🥦</div><h2>Alimentación durante el tratamiento</h2></div>
+          <div class="food-section">
+            <div>
+              <div class="food-col-title yes">✅ Preferir</div>
+              <div class="food-tag-list">
+                <span class="food-tag yes">Arroz blanco</span><span class="food-tag yes">Papas hervidas</span><span class="food-tag yes">Pan tostado</span><span class="food-tag yes">Banana madura</span><span class="food-tag yes">Pollo/Pavo cocido</span><span class="food-tag yes">Zanahoria cocida</span><span class="food-tag yes">Yogur natural</span><span class="food-tag yes">Gelatina</span><span class="food-tag yes">Caldos suaves</span><span class="food-tag yes">Infusiones tibias</span>
+              </div>
+            </div>
+            <div>
+              <div class="food-col-title no">❌ Evitar</div>
+              <div class="food-tag-list">
+                <span class="food-tag no">Alcohol extra</span><span class="food-tag no">Frituras</span><span class="food-tag no">Picante</span><span class="food-tag no">Cítricos (si hay mucositis)</span><span class="food-tag no">Carnes crudas/poco cocidas</span><span class="food-tag no">Mariscos</span><span class="food-tag no">Lácteos no pasteurizados</span><span class="food-tag no">Ayuno prolongado</span>
+              </div>
+            </div>
+          </div>
+          <div class="divider" style="margin: 16px 0;"></div>
+          <ul class="tips-list amber">
+            <li><div class="bullet">💡</div><span>El día de la infusión: comé algo <strong>liviano 1-2 hs antes</strong>, no llegues en ayunas ni con el estómago muy lleno.</span></li>
+            <li><div class="bullet">💡</div><span>Si hay náuseas: preferí <strong>comidas frías o a temperatura ambiente</strong>. Cinco o seis comidas pequeñas son mejores que tres grandes.</span></li>
+            <li><div class="bullet">💧</div><span>Tomá <strong>al menos 8-10 vasos de agua o líquido</strong> por día para ayudar a los riñones a eliminar el medicamento.</span></li>
+          </ul>
+        </div>
       </div>
     </details>
 
     <!-- 💊 DOXORRUBICINA -->
-    <details class="accordion" open>
+    <details class="accordion">
       <summary>💊 Doxorrubicina</summary>
       <div class="accordion-content">
         <div class="card coral">
@@ -330,7 +329,7 @@ body {
           </ul>
         </div>
 
-        <div class="two-col" style="margin-top:16px;">
+        <div class="two-col">
           <div class="card teal">
             <div class="card-title"><div class="icon-wrap">🦷</div><h2>Cuidado de la boca</h2></div>
             <ul class="tips-list">
@@ -385,7 +384,7 @@ body {
           </ul>
         </div>
 
-        <div class="two-col" style="margin-top:16px;">
+        <div class="two-col">
           <div class="card teal">
             <div class="card-title"><div class="icon-wrap">🩺</div><h2>Cuidados específicos con Paclitaxel</h2></div>
             <ul class="tips-list">
@@ -403,31 +402,6 @@ body {
               <li><div class="bullet">👶</div><span><strong>Anticoncepción efectiva</strong> durante el tratamiento y hasta 6 meses después. El fármaco es teratogénico. Consultar sobre crioconservación si se desea fertilidad futura.</span></li>
             </ul>
           </div>
-        </div>
-
-        <!-- Alimentación (Reutilizada y adaptada) -->
-        <div class="card amber" style="margin-top:16px;">
-          <div class="card-title"><div class="icon-wrap">🥦</div><h2>Alimentación durante el tratamiento</h2></div>
-          <div class="food-section">
-            <div>
-              <div class="food-col-title yes">✅ Preferir</div>
-              <div class="food-tag-list">
-                <span class="food-tag yes">Arroz blanco</span><span class="food-tag yes">Papas hervidas</span><span class="food-tag yes">Pan tostado</span><span class="food-tag yes">Banana madura</span><span class="food-tag yes">Pollo/Pavo cocido</span><span class="food-tag yes">Zanahoria cocida</span><span class="food-tag yes">Yogur natural</span><span class="food-tag yes">Gelatina</span><span class="food-tag yes">Caldos suaves</span><span class="food-tag yes">Infusiones tibias</span>
-              </div>
-            </div>
-            <div>
-              <div class="food-col-title no">❌ Evitar</div>
-              <div class="food-tag-list">
-                <span class="food-tag no">Alcohol extra</span><span class="food-tag no">Frituras</span><span class="food-tag no">Picante</span><span class="food-tag no">Cítricos (si hay mucositis)</span><span class="food-tag no">Carnes crudas/poco cocidas</span><span class="food-tag no">Mariscos</span><span class="food-tag no">Lácteos no pasteurizados</span><span class="food-tag no">Ayuno prolongado</span>
-              </div>
-            </div>
-          </div>
-          <div class="divider" style="margin: 16px 0;"></div>
-          <ul class="tips-list amber">
-            <li><div class="bullet">💡</div><span>El día de la infusión: comé algo <strong>liviano 1-2 hs antes</strong>, no llegues en ayunas ni con el estómago muy lleno.</span></li>
-            <li><div class="bullet">💡</div><span>Si hay náuseas: preferí <strong>comidas frías o a temperatura ambiente</strong>. Cinco o seis comidas pequeñas son mejores que tres grandes.</span></li>
-            <li><div class="bullet">💧</div><span>Tomá <strong>al menos 8-10 vasos de agua o líquido</strong> por día para ayudar a los riñones a eliminar el medicamento.</span></li>
-          </ul>
         </div>
       </div>
     </details>
