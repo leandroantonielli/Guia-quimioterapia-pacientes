@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Repositorio de Guías – Quimioterapia</title>
+<title>Repositorio de Guías – Quimioterapia y Radioterapia</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -43,7 +43,7 @@ body {
 /* ── HEADER ── */
 .header {
   background: var(--teal);
-  padding: 36px 40px 48px; /* 👆🏼 Aumenté padding inferior para separar del primer acordeón */
+  padding: 36px 40px 48px;
   position: relative;
   overflow: hidden;
   border-radius: 20px 20px 0 0;
@@ -99,8 +99,8 @@ body {
 
 /* ── BODY & CARDS ── */
 .body {
-  padding: 0 36px 32px; /* 👆🏼 Sin padding superior para no duplicar espacio con el header */
-  display: flex; flex-direction: column; gap: 18px; /* 👆🏼 Espacio entre fichas */
+  padding: 0 36px 32px;
+  display: flex; flex-direction: column; gap: 18px;
 }
 .card {
   background: var(--white);
@@ -228,7 +228,7 @@ body {
 .footer {
   background: var(--teal); color: rgba(255,255,255,0.65);
   font-size: 11px; text-align: center; padding: 18px 24px; line-height: 1.6;
-  margin-top: 24px; /* 👆🏼 Espacio solicitado antes del footer */
+  margin-top: 24px;
 }
 .footer strong { color: rgba(255,255,255,0.9); }
 
@@ -245,8 +245,8 @@ body {
   <!-- HEADER -->
   <div class="header">
     <div class="header-pill">Repositorio de Guías</div>
-    <h1>Efectos Adversos de<br><span>Quimioterapia</span></h1>
-    <p>Guías prácticas para pacientes. Hacé clic en cada sección para desplegar la información.</p>
+    <h1>Efectos Adversos de<br><span>Oncología</span></h1>
+    <p>Guías prácticas para pacientes. Hacé clic en cada sección para desplegar la información específica.</p>
   </div>
 
   <!-- BODY -->
@@ -261,12 +261,12 @@ body {
           <div class="two-col">
             <ul class="tips-list">
               <li><div class="bullet">🧼</div><span><strong>Lavado de manos frecuente</strong> con agua y jabón, especialmente antes de comer y tras ir al baño.</span></li>
-              <li><div class="bullet">😷</div><span>Entre los <strong>días 7 y 14 post-infusión</strong> tus defensas están más bajas: evitá aglomeraciones y contacto con personas enfermas.</span></li>
+              <li><div class="bullet">😷</div><span>Entre los <strong>días 7 y 14 post-infusión</strong> (si hay quimio), tus defensas están más bajas: evitá aglomeraciones y contacto con personas enfermas.</span></li>
               <li><div class="bullet">🚫</div><span><strong>No te automediques</strong>: consultá siempre antes de tomar analgésicos, vitaminas o suplementos herbales.</span></li>
             </ul>
             <ul class="tips-list">
               <li><div class="bullet">💉</div><span>No recibas <strong>vacunas de virus vivos</strong> sin autorización del oncólogo.</span></li>
-              <li><div class="bullet">☀️</div><span><strong>Protección solar diaria</strong> (FPS 50+). Muchos quimioterápicos aumentan la fotosensibilidad.</span></li>
+              <li><div class="bullet">☀️</div><span><strong>Protección solar diaria</strong> (FPS 50+). Muchos tratamientos aumentan la fotosensibilidad.</span></li>
               <li><div class="bullet">🧠</div><span>Es normal sentir tristeza o ansiedad. <strong>Pedí apoyo psicológico</strong> si lo necesitás; es parte integral del tratamiento.</span></li>
             </ul>
           </div>
@@ -411,6 +411,69 @@ body {
       </div>
     </details>
 
+    <!-- 🌟 RADIOTERAPIA -->
+    <details class="accordion">
+      <summary>🌟 Radioterapia</summary>
+      <div class="accordion-content">
+        <div class="card coral">
+          <div class="card-title"><div class="icon-wrap">⚡</div><h2>Efectos adversos frecuentes</h2></div>
+          <div class="ae-grid">
+            <div class="ae-item highlight"><span class="ae-icon">😴</span><span class="ae-name">Fatiga</span><span class="ae-note">Muy frecuente. Suele comenzar tras unas semanas y empeorar con el tratamiento. Difiere del cansancio normal y no siempre mejora con el descanso.</span></div>
+            <div class="ae-item highlight"><span class="ae-icon">🔴</span><span class="ae-name">Cambios en la piel</span><span class="ae-note">Dermatitis por radiación: enrojecimiento, irritación, sequedad, descamación o aspecto de quemadura solar. Localizada solo en la zona irradiada.</span></div>
+            <div class="ae-item"><span class="ae-icon">💇</span><span class="ae-name">Caída del cabello</span><span class="ae-note">Solo ocurre en la zona tratada (ej. cabeza → pérdida de pelo/cejas). Generalmente reversible, aunque puede cambiar textura/color.</span></div>
+            <div class="ae-item"><span class="ae-icon">📉</span><span class="ae-name">Recuentos sanguíneos bajos</span><span class="ae-note">Menos frecuente que en quimio. Puede requerir pausa en el tratamiento. Más probable si se combina con quimioterapia.</span></div>
+            <div class="ae-item"><span class="ae-icon">🔄</span><span class="ae-name">Efectos tardíos</span><span class="ae-note">Algunos cambios pueden aparecer meses o años después. Dependen de la dosis y zona. El equipo planifica para minimizarlos.</span></div>
+          </div>
+        </div>
+
+        <div class="alarm-box">
+          <div class="alarm-title">🚨 Consultá al equipo de radioterapia si presentás…</div>
+          <ul class="alarm-list">
+            <li>Fatiga que impide tus actividades básicas o no mejora con el reposo</li>
+            <li>Piel con ampollas, sangrado, supuración o dolor intenso en la zona tratada</li>
+            <li>Fiebre ≥ 38°C o signos de infección</li>
+            <li>Confusión, mareo severo o dificultad para concentrarte</li>
+            <li>Dolor nuevo o que empeora en la zona irradiada</li>
+            <li>Cambios bruscos en tu estado de ánimo o capacidad para cuidarte</li>
+            <li>Posibilidad de embarazo o necesidad de ajustar anticoncepción</li>
+            <li>Cualquier síntoma que te genere preocupación o malestar constante</li>
+          </ul>
+        </div>
+
+        <div class="two-col">
+          <div class="card teal">
+            <div class="card-title"><div class="icon-wrap">🧴</div><h2>Cuidado de la piel (Dermatitis)</h2></div>
+            <ul class="tips-list">
+              <li><div class="bullet">👕</div><span>Usá <strong>ropa holgada de algodón</strong>. Evitá telas ásperas, elásticos o prendas que presionen la zona.</span></li>
+              <li><div class="bullet">🚫</div><span><strong>No frotes, rasques ni apliques cinta adhesiva</strong> sobre la piel tratada. Si es necesario vendar, usá cinta hipoalergénica y rotá el lugar.</span></li>
+              <li><div class="bullet">💧</div><span>Lavá la zona solo con <strong>agua tibia y jabón neutro suave</strong>. Secá con toalla suave sin frotar. Respetá las marcas de tinta del técnico.</span></li>
+              <li><div class="bullet">☀️</div><span><strong>Protección solar estricta</strong>: usá ropa oscura de manga larga o bloqueador SPF 30+ (consultá con el equipo cuál usar). La sensibilidad puede persistir meses.</span></li>
+              <li><div class="bullet">🧊</div><span><strong>No apliques calor ni frío</strong> (bolsas de hielo, almohadillas térmicas) sin autorización médica.</span></li>
+            </ul>
+          </div>
+          <div class="card purple">
+            <div class="card-title"><div class="icon-wrap">🔋</div><h2>Manejo de la fatiga y actividad</h2></div>
+            <ul class="tips-list">
+              <li><div class="bullet">📊</div><span>Medí tu fatiga del <strong>0 al 10</strong> y compartila en cada visita. No existe un análisis para medirla; tu relato es la guía principal.</span></li>
+              <li><div class="bullet">🚶</div><span>Si te sentís bien, <strong>caminatas suaves de 20-30 min</strong> ayudan más que el reposo absoluto. No te forces, pero mantené movimiento ligero.</span></li>
+              <li><div class="bullet">💼</div><span>Si trabajás, organizá <strong>pausas estratégicas</strong>. Podés necesitar licencias o horarios flexibles; hablalo con tu empleador y equipo médico.</span></li>
+              <li><div class="bullet">🍽️</div><span>Mantené <strong>hidratación y comidas pequeñas frecuentes</strong>. La fatiga empeora con ayuno prolongado o deshidratación.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="heart-card">
+          <h2>🤰 Fertilidad, embarazo y vida sexual</h2>
+          <ul class="tips-list">
+            <li><div class="bullet">👶</div><span><strong>Evitá el embarazo</strong> durante el tratamiento y el tiempo que indique tu médico. La radiación puede dañar al feto.</span></li>
+            <li><div class="bullet">🔬</div><span>La radiación en pelvis/ovarios/testículos <strong>puede afectar la fertilidad</strong>. Consultá sobre crioconservación de óvulos/esperma <em>antes</em> de iniciar.</span></li>
+            <li><div class="bullet">💞</div><span>En radioterapia pélvica, puede haber <strong>sequedad vaginal o molestias</strong> durante las relaciones. Usá lubricantes recomendados por tu equipo y consultá si hay que hacer pausas temporales.</span></li>
+            <li><div class="bullet">📅</div><span>Los cambios en la función sexual o el deseo suelen mejorar con el tiempo. <strong>Pedí derivación a especialistas</strong> si lo necesitás; es un tema común y tratable.</span></li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
     <!-- EMERGENCIAS -->
     <div class="emergency">
       <h3>📞 Centros de toxicología – Emergencias</h3>
@@ -432,7 +495,7 @@ body {
 
   <!-- FOOTER -->
   <div class="footer">
-    Esta guía es informativa y no reemplaza la indicación médica. Ante cualquier duda, consultá siempre con tu <strong>equipo de oncología o cuidados paliativos</strong>. · Material elaborado para pacientes en tratamiento con quimioterapia.
+    Esta guía es informativa y no reemplaza la indicación médica. Ante cualquier duda, consultá siempre con tu <strong>equipo de oncología o cuidados paliativos</strong>. · Material elaborado para pacientes en tratamiento oncológico.
   </div>
 </div><!-- /page -->
 </body>
